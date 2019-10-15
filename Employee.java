@@ -50,10 +50,6 @@ public class Employee {
         return "Employee{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", dateHired=" + dateHired +
-                ", position=" + position +
-                ", department=" + department +
-                ", projects=" + projects +
                 '}';
     }
 
@@ -63,15 +59,11 @@ public class Employee {
         if (o == null || getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
         return firstName.equals(employee.firstName) &&
-                lastName.equals(employee.lastName) &&
-                dateHired.equals(employee.dateHired) &&
-                position == employee.position &&
-                department.equals(employee.department) &&
-                projects.equals(employee.projects);
+                lastName.equals(employee.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, dateHired, position, department, projects);
+        return Objects.hash(firstName, lastName);
     }
 }

@@ -25,14 +25,10 @@ public class Customer {
         return monthlyPay;
     }
 
-
-
     @Override
     public String toString() {
         return "Customer{" +
                 "name='" + name + '\'' +
-                ", country='" + country + '\'' +
-                ", monthlyPay=" + monthlyPay +
                 '}';
     }
 
@@ -41,13 +37,11 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return monthlyPay == customer.monthlyPay &&
-                name.equals(customer.name) &&
-                country.equals(customer.country);
+        return Objects.equals(name, customer.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, country, monthlyPay);
+        return Objects.hash(name);
     }
 }

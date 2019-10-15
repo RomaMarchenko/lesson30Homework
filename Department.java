@@ -1,6 +1,7 @@
 package lesson30homework;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Department {
     private DepartmentType type;
@@ -27,7 +28,19 @@ public class Department {
     public String toString() {
         return "Department{" +
                 "type=" + type +
-                ", employees=" + employees +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Department that = (Department) o;
+        return type == that.type;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type);
     }
 }

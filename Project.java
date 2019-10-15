@@ -33,8 +33,6 @@ public class Project {
     public String toString() {
         return "Project{" +
                 "name='" + name + '\'' +
-                ", customer=" + customer +
-                ", projectManager=" + teamLead +
                 '}';
     }
 
@@ -43,13 +41,11 @@ public class Project {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Project project = (Project) o;
-        return name.equals(project.name) &&
-                customer.equals(project.customer) &&
-                teamLead.equals(project.teamLead);
+        return name.equals(project.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, customer, teamLead);
+        return Objects.hash(name);
     }
 }

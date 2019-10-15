@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Controller {
-    public static ArrayList<Employee> employeesByProject(String projectName) {
-        ArrayList<Employee> wantedEmployees = new ArrayList<>();
+    public static HashSet<Employee> employeesByProject(String projectName) {
+        HashSet<Employee> wantedEmployees = new HashSet<>();
         ArrayList<Employee> employees = EmployeeDAO.getEmployees();
 
         for (Employee employee : employees) {
@@ -33,7 +33,7 @@ public class Controller {
         for (Department department : departments) {
             if (department != null && department.getType() != null) {
                 if (department.getType().equals(departmentType)) {
-                    for (Employee em : employees) {
+                    for (Employee em : department.getEmployees()) {
                         if (em.getProjects().isEmpty())
                             wantedEmployees.add(em);
                     }
@@ -61,7 +61,7 @@ public class Controller {
         ArrayList<Project> projects = lead.getProjects();
 
         for (Project pr : projects) {
-             ArrayList<Employee> employees = employeesByProject(pr.getName());
+             HashSet<Employee> employees = employeesByProject(pr.getName());
              employees.remove(lead);
              wantedEmployees.addAll(employees);
             }
@@ -83,7 +83,7 @@ public class Controller {
         ArrayList<Project> projects =  employee.getProjects();
 
         for (Project project : projects) {
-            ArrayList<Employee> employees = employeesByProject(project.getName());
+            HashSet<Employee> employees = employeesByProject(project.getName());
             employees.remove(employee);
             wantedEmployees.addAll(employees);
         }

@@ -16,11 +16,11 @@ public class Demo {
     private static Project project3 = new Project("Project3", customer2, null);
     private static Project project4 = new Project("Project4", customer2, null);
     private static Project project5 = new Project("Project5", customer2, null);
-    private static Project project6 = new Project("Project1", customer3, null);
-    private static Project project7 = new Project("Project1", customer3, null);
-    private static Project project8 = new Project("Project1", customer3, null);
-    private static Project project9 = new Project("Project1", customer3, null);
-    private static Project project10 = new Project("Project1", customer4, null);
+    private static Project project6 = new Project("Project6", customer3, null);
+    private static Project project7 = new Project("Project7", customer3, null);
+    private static Project project8 = new Project("Project8", customer3, null);
+    private static Project project9 = new Project("Project9", customer3, null);
+    private static Project project10 = new Project("Project10", customer4, null);
 
     private static Department department1 = new Department(DepartmentType.HR, null);
     private static Department department2 = new Department(DepartmentType.MARKETING, null);
@@ -167,14 +167,15 @@ public class Demo {
         DepartmentDAO.save(department3);
         DepartmentDAO.save(department4);
 
-        Controller.employeesByProject("Project1");
-        Controller.projectsByCustomer(customer1);
-        Controller.employeesByCustomerProjects(customer2);
-        Controller.employeesByDepartmentWithoutProject(department4.getType());
-        Controller.employeesByProjectEmployee(employee14);
-        Controller.employeesByTeamLead(employee10);
-        Controller.employeesWithoutProject();
-        Controller.projectsByEmployee(employee6);
-        Controller.teamLeadsByEmployee(employee12);
+
+        System.out.println(Controller.employeesByProject("Project1"));
+        System.out.println(Controller.projectsByCustomer(customer1));
+        System.out.println(Controller.employeesByCustomerProjects(customer2));
+        System.out.println(Controller.employeesByDepartmentWithoutProject(department4.getType()));
+        System.out.println(Controller.employeesByProjectEmployee(employee14));
+        System.out.println(Controller.employeesByTeamLead(employee10));
+        System.out.println(Controller.employeesWithoutProject());
+        System.out.println(Controller.projectsByEmployee(employee6));
+        System.out.println(Controller.teamLeadsByEmployee(employee12));
     }
 }
